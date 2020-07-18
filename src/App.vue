@@ -10,6 +10,7 @@
 import Header from "./components/layout/Header";
 import Poems from "./components/Poems";
 import AddPoem from "./components/AddPoem";
+import axios from "axios";
 
 export default {
   name: "App",
@@ -20,26 +21,7 @@ export default {
   },
   data() {
     return {
-      poemsArray: [
-        {
-          id: 1,
-          title: "Frühling",
-          author: "Christian Morgenstern",
-          isFavouritePoem: false,
-        },
-        {
-          id: 2,
-          title: "Sonnenuntergang",
-          author: "Christian Morgenstern",
-          isFavouritePoem: true,
-        },
-        {
-          id: 3,
-          title: "Erlkönig",
-          author: "Johann Wolfgang von Goethe",
-          isFavouritePoem: true,
-        },
-      ],
+      poemsArray: [],
     };
   },
   methods: {
@@ -49,6 +31,13 @@ export default {
     addPoem(newPoem) {
       this.poemsArray = [...this.poemsArray, newPoem];
     },
+  },
+  //runs right away:
+  created() {
+    axios
+      .get("https://github.com/LauresMaures/storytelling/blob/master/db.json")
+      .then((res) => (this.poemsArray = res.data))
+      .catch((err) => console.log(err));
   },
 };
 </script>
