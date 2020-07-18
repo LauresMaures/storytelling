@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Frühling",
+    "author": "Christian Morgenstern",
+    "isFavouritePoem": false
+  },
+  {
+    "id": 2,
+    "title": "Sonnenuntergang",
+    "author": "Christian Morgenstern",
+    "isFavouritePoem": false
+  },
+  {
+    "id": 3,
+    "title": "Erlkönig",
+    "author": "Johann Wolfgang von Goethe",
+    "isFavouritePoem": false
+  },
+  {
+    "id": 4,
+    "title": "März",
+    "author": "Johann Wolfgang von Goethe",
+    "isFavouritePoem": false
+  },
+  {
+    "id": 5,
+    "title": "Frühling übers Jahr",
+    "author": "Johann Wolfgang von Goethe",
+    "isFavouritePoem": false
+  }
+]
