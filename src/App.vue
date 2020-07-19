@@ -1,69 +1,43 @@
 <template>
   <div id="app">
     <Header />
-    <AddPoem v-on:add-poem="addPoem" />
-    <Poems v-bind:poems="poemsArray" v-on:del-poem="deletePoem" />
+    <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/layout/Header";
-import Poems from "./components/Poems";
-import AddPoem from "./components/AddPoem";
-import axios from "axios";
+import Footer from "./components/layout/Footer";
 
 export default {
-  name: "App",
+  name: "app",
   components: {
     Header,
-    Poems,
-    AddPoem,
-  },
-  data() {
-    return {
-      poemsArray: [],
-    };
-  },
-  methods: {
-    deletePoem(id) {
-      this.poemsArray = this.poemsArray.filter((poem) => poem.id !== id);
-    },
-    addPoem(newPoem) {
-      this.poemsArray = [...this.poemsArray, newPoem];
-    },
-  },
-  //runs right away:
-  created() {
-    axios
-      .get("https://github.com/LauresMaures/storytelling/blob/master/db.json")
-      .then((res) => (this.poemsArray = res.data))
-      .catch((err) => console.log(err));
+    Footer,
   },
 };
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-body {
-  font-family: Poppins, sans-serif;
-  line-height: 1.4;
+/*main sections*/
+.padding {
+  padding-bottom: 2rem;
 }
-
-.btn {
-  display: inline-block;
-  border: none;
-  background: #3f8d7d;
-  color: #fff;
-  padding: 7px 20px;
-  cursor: pointer;
+.main {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
 }
-
-.btn:hover {
-  background: #0c7762;
+.main hr {
+  border-top: 2px solid #b4b4b4;
+  width: 31.5%;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
 }
 </style>

@@ -34,13 +34,12 @@ export default {
       //prevent submitting to a file:
       e.preventDefault();
       const newPoem = {
-        id: 5, //uuid.v4(),
+        //uuid.v4(), //no longer needed as JSON Placeholder gives us an ID
         title: this.title,
         author: this.author,
         isFavouritePoem: false,
       };
       //send up to parent by emitting an event:
-      console.log(123);
       this.$emit("add-poem", newPoem);
 
       //clear text fields afterwards:
